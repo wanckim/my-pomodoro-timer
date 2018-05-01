@@ -1,5 +1,10 @@
 (function() {
   function timeformat() {
+    /**
+    * @desc Formats the time (seconds) into MM:SS
+    * @param {Integer} seconds
+    * @return {String}
+    */
     return function(seconds) {
       var min = parseInt(seconds / 60, 10);
       var sec = seconds % 60;
