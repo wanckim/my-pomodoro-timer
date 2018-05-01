@@ -1,1 +1,7 @@
 <h1>My Pomodoro Timer</h1>
+<main>
+  <div ng-controller="HomeCtrl">
+    <h3>{{runTime | timeformat}}</h3>
+    <button type="button" ng-click="sessions()" ng-bind="btn_text"></button>
+  </div>
+</main>
