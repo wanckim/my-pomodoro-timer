@@ -1,15 +1,15 @@
 (function() {
   function Timer($interval) {
-    var Timer = {};
-
     /**
     * @desc Default settings
     */
-    Timer.runTime = 1500;
-    Timer.btn_timer = "Start";
-    Timer.btn_state = "Take a break!";
-    Timer.onBreak = false;
-    Timer.stateChange = false;
+    var Timer = {
+      runTime: 1500,
+      btn_timer: "Start",
+      btn_state: "Take a break!",
+      stateChange: false
+    };
+    var onBreak = false;
     var stop;
 
     /**
@@ -43,7 +43,7 @@
     * @desc Toggle timer state button text
     */
     var changeTimer = function() {
-      if (Timer.onBreak) {
+      if (onBreak) {
         Timer.btn_state = "Take a break!";
       } else {
         Timer.btn_state = "Let's work!";
@@ -82,9 +82,9 @@
     * @desc Toggle state and timer condition, and re-initiate start()
     */
     Timer.reStart = function() {
-      changeTimer();
+      onBreak = toggle(onBreak);
       Timer.stateChange = toggle(Timer.stateChange);
-      Timer.onBreak = toggle(Timer.onBreak);
+      changeTimer();
       Timer.start();
     };
 
