@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myPomodoroTimer">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Bloc Base Project</title>
+    <title>My Pomodoro Timer Project</title>
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <h4>Hello, World???</h4>
-    <script src="/scripts/app.js"></script>
+  <ui-view></ui-view>
+
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+  <!-- AngularUI Router -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+  <!-- FireBase -->
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAuUAiYdP9_-24ygnpzgKqfqhep4iqXeOY",
+      authDomain: "my-pomodoro-timer-5c01d.firebaseapp.com",
+      databaseURL: "https://my-pomodoro-timer-5c01d.firebaseio.com",
+      projectId: "my-pomodoro-timer-5c01d",
+      storageBucket: "my-pomodoro-timer-5c01d.appspot.com",
+      messagingSenderId: "407325552441"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <!-- Application Files -->
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/controllers/HomeCtrl.js"></script>
 </body>
 </html>
