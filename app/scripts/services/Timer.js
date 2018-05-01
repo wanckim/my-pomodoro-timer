@@ -7,9 +7,9 @@
       runTime: 1500,
       btn_timer: "Start",
       btn_state: "Take a break!",
+      onBreak: false,
       stateChange: false
     };
-    var onBreak = false;
     var stop;
 
     /**
@@ -43,7 +43,7 @@
     * @desc Toggle timer state button text
     */
     var changeTimer = function() {
-      if (onBreak) {
+      if (Timer.onBreak) {
         Timer.btn_state = "Take a break!";
       } else {
         Timer.btn_state = "Let's work!";
@@ -82,9 +82,9 @@
     * @desc Toggle state and timer condition, and re-initiate start()
     */
     Timer.reStart = function() {
-      onBreak = toggle(onBreak);
-      Timer.stateChange = toggle(Timer.stateChange);
       changeTimer();
+      Timer.stateChange = toggle(Timer.stateChange);
+      Timer.onBreak = toggle(Timer.onBreak);
       Timer.start();
     };
 
