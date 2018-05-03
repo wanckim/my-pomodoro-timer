@@ -8,7 +8,8 @@
       btn_timer: "Start",
       btn_state: "Take a break!",
       onBreak: false,
-      stateChange: false
+      stateChange: false,
+      counter: 0
     };
     var stop;
 
@@ -34,7 +35,7 @@
             $interval.cancel(stop);
             Timer.stateChange = toggle(Timer.stateChange);
           }
-        }, 1000);
+        }, 10);
       }
     };
 
@@ -67,12 +68,13 @@
     */
     Timer.start = function() {
       if (!Timer.onBreak) {
-        // Timer.runTime = 1500;
-        Timer.runTime = 10;
+        Timer.runTime = 1500;
         startTimer(Timer.runTime);
-      } else {
-        // Timer.runTime = 300;
-        Timer.runTime = 3;
+      } else if (Timer.onBreak && Timer.counter % 4 !== 0) {
+        Timer.runTime = 300;
+        startTimer(Timer.runTime);
+      } else if (Timer.onBreak && Timer.counter % 4 === 0) {
+        Timer.runTime = 1800;
         startTimer(Timer.runTime);
       }
     };
@@ -82,6 +84,7 @@
     * @desc Toggle state and timer condition, and re-initiate start()
     */
     Timer.reStart = function() {
+      if (!Timer.onBreak) { Timer.counter++ };
       changeTimer();
       Timer.stateChange = toggle(Timer.stateChange);
       Timer.onBreak = toggle(Timer.onBreak);

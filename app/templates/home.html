@@ -1,8 +1,10 @@
-<h1>My Pomodoro Timer</h1>
-<main>
-  <div ng-controller="HomeCtrl">
+<header>
+  <h1>My Pomodoro Timer</h1>
+</header>
+<main class="timer">
+  <div class="timer-value">
     <h3>{{home.timer.runTime | timeformat}}</h3>
-    <div>
+    <div class="timer-btn">
       <button type="button"
               ng-click="home.timer.reStart()"
               ng-show="home.timer.stateChange"
