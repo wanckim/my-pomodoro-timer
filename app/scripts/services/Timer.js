@@ -1,5 +1,12 @@
 (function() {
-  function Timer($interval) {
+  function Timer($rootScope, $interval) {
+    /**
+    * @desc Ding sound preloaded
+    */
+    var dingSound = new buzz.sound("/assets/sounds/ding.mp3", {
+      preload: true
+    });
+
     /**
     * @desc Default settings
     */
@@ -35,7 +42,7 @@
             $interval.cancel(stop);
             Timer.stateChange = toggle(Timer.stateChange);
           }
-        }, 1000);
+        }, 10);
       }
     };
 
@@ -91,10 +98,16 @@
       Timer.start();
     };
 
+    $rootScope.$watch(function() { return Timer.runTime }, function() {
+      if (Timer.runTime === 0) {
+        dingSound.play();
+      }
+    });
+
     return Timer;
   }
 
   angular
     .module('myPomodoroTimer')
-    .factory('Timer', ['$interval', Timer]);
+    .factory('Timer', ['$rootScope', '$interval', Timer]);
 })();
