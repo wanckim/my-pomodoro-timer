@@ -1,23 +1,89 @@
 body {
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
   font-family: 'Lato thin', sans-serif;
 }
-Header {
-  padding: 5px 0 0 25px;
+
+section, form, input, button {
+  font-family: 'Lato', sans-serif;
+  color: #5F5F5F;
+}
+
+section.tasks {
+  position: absolute;
+  width: 310px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding: 0;
+  background-color: #DADADA;
+}
+
+section.tasks h2 {
+  margin: 45px 30px 0 30px;
+}
+
+section.tasks form {
+  text-align: right;
+  margin: 15px 30px 25px 30px;
+}
+
+section.tasks form input {
+  width: 230px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #FCFCFC;
+  border: none;
+  border-radius: 2px;
+}
+
+section.tasks form input::placeholder {
+  color: #CCC;
+}
+
+section.tasks form button {
+  font-weight: bold;
+  padding: 7px 20px;
+  background-color: #FCFCFC;
+  border: none;
+  border-radius: 2px;
+}
+
+section.tasks form button:hover {
+  background-color: #fcb544;
+  cursor: pointer;
+}
+
+section.tasks form button:active {
+  background-color: #ed9204;
+}
+
+section.tasks div.tasks-list {
+  font-size: 10pt;
+  margin: 0;
+  padding: 20px 30px;
 }
 
 main.timer {
-  font-size: 28pt;
+  margin-left: 310px;
+}
+
+main.timer header.timer-header {
+  color: #EEE;
+  padding-left: 10px;
+}
+
+main.timer div.timer-content {
   color: #555;
-  margin: 150px auto;
+  margin: 200px auto;
   width: 115px;
 }
 
-div.timer-value h3{
-  margin-bottom: 0;
+main.timer div.timer-value span {
+  font-size: 33pt;
+  font-weight: bold;
 }
 
-div.timer-btn button{
+main.timer div.timer-btn button{
   font-family: "PT Sans", sans-serif;
   font-size: 14pt;
   color: #FAFAFA;
@@ -26,4 +92,12 @@ div.timer-btn button{
   border-radius: 2pt;
   width: 115px;
   padding: 10px 0;
+}
+
+main.timer div.timer-btn button:hover {
+  background-color: #AAA;
+  cursor: pointer;
+}
+main.timer div.timer-btn button:active {
+  color: #777;
 }
