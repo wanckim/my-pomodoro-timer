@@ -3,7 +3,7 @@
     this.timer = Timer;
 
     this.tasks = Tasks.all;
-    
+
     this.addTask = function() {
       if ($scope.newTask) {
         Tasks.add($scope.newTask);

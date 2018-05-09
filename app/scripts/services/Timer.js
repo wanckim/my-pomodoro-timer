@@ -42,7 +42,7 @@
             $interval.cancel(stop);
             Timer.stateChange = toggle(Timer.stateChange);
           }
-        }, 10);
+        }, 1000);
       }
     };
 

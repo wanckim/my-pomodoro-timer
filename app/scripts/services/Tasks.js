@@ -7,7 +7,12 @@
     Tasks.all = tasks;
 
     Tasks.add = function(task) {
-      tasks.$add({ name: task }).then(function(ref) {
+      var timeStamp = new Date();
+      var taskObj = {
+        name: task,
+        createdAt: timeStamp
+      };
+      tasks.$add(taskObj).then(function(ref) {
         var id = ref.key;
         tasks.$indexFor(id);
       });

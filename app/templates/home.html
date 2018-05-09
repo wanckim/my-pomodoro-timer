@@ -4,7 +4,9 @@
     <input ng-model="newTask" placeholder="Enter new task">
     <button type="submit">Add task</button>
   </form>
-  <div class="tasks-list" ng-repeat="task in home.tasks">
+  <div class="tasks-list"
+       ng-repeat="task in home.tasks | orderBy:'createdAt':true"
+       ng-class-odd="'odd'">
     <span>{{task.name}}</span>
   </div>
 </section>
