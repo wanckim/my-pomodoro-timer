@@ -23,7 +23,7 @@ The user gets an alarm when the time-set ends, and after each sessions the task 
 
 ```shell
 git clone https://github.com/wanckim/my-pomodoro-timer.git
-cd lets-slack-angularjs
+cd my-pomodoro-timer
 ```
 
 ### Install npm packages
